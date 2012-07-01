@@ -6,7 +6,7 @@ from redactor.widgets import RedactorEditor
 class RedactorField(Field):
     def __init__(self, *args, **kwargs):
         options = kwargs.pop('redactor_options', {})
-        upload_to = kwargs.pop('upload_to', {})
+        upload_to = kwargs.pop('upload_to', '')
         self.widget = RedactorEditor(redactor_options=options, upload_to=upload_to)
         super(RedactorField, self).__init__(*args, **kwargs)
 
