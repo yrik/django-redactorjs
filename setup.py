@@ -11,7 +11,7 @@ setup(
     version=".".join(map(str, VERSION)),
     description='This reusable Django app using WYSIWYG editor redactorjs.com',
     long_description=readme,
-    author="Igor 'TigorC' Tokarev",
+    author="Igor Tokarev",
     author_email='TigorC@gmail.com',
     url='http://github.com/TigorC/django-redactorjs',
     packages=['redactor'],
