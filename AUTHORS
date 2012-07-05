@@ -1,7 +1,11 @@
 django-redactorjs Authors
 =======================
 
-Created by Igor 'TigorC' Tokarev.
+django-redactorjs was created by Igor 'TigorC' Tokarev based on the work of Vladimir Sidorenko.
+
+  * Igor 'TigorC'
+  * Vladimir Sidorenko
+  * Guilherme Gondim
 
 
 Authors WYSIWYG Redactor
