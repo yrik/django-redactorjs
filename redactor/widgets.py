@@ -9,9 +9,8 @@ GLOBAL_OPTIONS = getattr(settings, 'REDACTOR_OPTIONS', {})
 REDACTOR_EXTERNAL_JQUERY = getattr(settings, 'REDACTOR_EXTERNAL_JQUERY', False)
 
 INIT_JS = """<script type="text/javascript">
-  jQuery(document).ready(function(){
-    $("#%s").redactor(%s);
-  });
+    if (!window._redactor_options) window._redactor_options = {};
+    window._redactor_options["#%s"] = %s;
 </script>
 """
 
