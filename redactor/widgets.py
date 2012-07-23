@@ -6,6 +6,7 @@ from django.conf import settings
 
 
 GLOBAL_OPTIONS = getattr(settings, 'REDACTOR_OPTIONS', {})
+REDACTOR_EXTERNAL_JQUERY = getattr(settings, 'REDACTOR_EXTERNAL_JQUERY', False)
 
 INIT_JS = """<script type="text/javascript">
   jQuery(document).ready(function(){
@@ -14,14 +15,18 @@ INIT_JS = """<script type="text/javascript">
 </script>
 """
 
+redactor_js = [
+    'redactor/redactor.min.js',
+    'redactor/init.js',
+]
+
+if not REDACTOR_EXTERNAL_JQUERY:
+    redactor_js.insert(0, 'redactor/jquery-1.7.min.js')
 
 class RedactorEditor(widgets.Textarea):
 
     class Media:
-        js = (
-            'redactor/jquery-1.7.min.js',
-            'redactor/redactor.min.js',
-        )
+        js = redactor_js
         css = {
             'all': (
                 'redactor/css/redactor.css',
