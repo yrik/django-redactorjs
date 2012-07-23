@@ -37,6 +37,7 @@ class RedactorEditor(widgets.Textarea):
         self.upload_to = kwargs.pop('upload_to', '')
         self.custom_options = kwargs.pop('redactor_options', {})
         super(RedactorEditor, self).__init__(*args, **kwargs)
+        self.add_language_file()
 
     def get_options(self):
         options = GLOBAL_OPTIONS.copy()
@@ -47,13 +48,18 @@ class RedactorEditor(widgets.Textarea):
         })
         return json.dumps(options)
 
+    def add_language_file(self):
+        lang = self.custom_options.get(
+                'lang', GLOBAL_OPTIONS.get('lang', None))
+        if lang:
+            self.Media.js.insert(0, 'redactor/langs/%s.js' % lang)
+
     def render(self, name, value, attrs=None):
         html = super(RedactorEditor, self).render(name, value, attrs)
         final_attrs = self.build_attrs(attrs)
         id_ = final_attrs.get('id')
         html += INIT_JS % (id_, self.get_options())
         return mark_safe(html)
-
 
 # For backward compatibility
 JQueryEditor = RedactorEditor
