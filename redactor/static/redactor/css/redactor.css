@@ -210,7 +210,7 @@ body .redactor_air {
 	padding: 0 !important;
 	padding-left: 2px !important;
 	line-height: 0 !important;
-	list-style: none !important;
+	list-style: none;
 	font-size: 0;
 	background: #f2f2f2;
 	background: -moz-linear-gradient(top,  #f5f5f5 0%, #ddd 100%);
@@ -232,7 +232,7 @@ body .redactor_air .redactor_toolbar {
 	margin: 0 !important;	
 	padding: 3px 1px;
 	padding-right: 0;
-	list-style: none !important;
+	list-style-type: none;	
 }
 .redactor_toolbar li.redactor_separator {
 	float: left;		
